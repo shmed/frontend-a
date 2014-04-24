@@ -50,11 +50,13 @@ $(function(){
 	$('#search').click(function(){
 		$('#submitMessage').show()
 		if ($('#from-selection').val() == '' || $('#to-selection').val() == ''){
-			$('#submitMessage').text('HAHAHAHA');
+			$('#submitMessage').text('Please select both destination from the lists');
 			$('#submitMessage').addClass("error");
+			$('#submitMessage').removeClass("success");
 		}else{
-			$('#submitMessage').text('Congrats');
+			$('#submitMessage').text('Enjoy your trip!');
 			$('#submitMessage').addClass("success");
+			$('#submitMessage').removeClass("error");
 		}
 	});
 });
