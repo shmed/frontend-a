@@ -1,12 +1,14 @@
 doctype html
 html.en(lang='en')
   head
-    title=title
+    title='Cool Search Tool'
   
     
     link(rel='stylesheet', href='/css/main.css')
-      
+
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css')
     link(rel='stylesheet', href='/twitter-typeahead/typeaheadjs.css')
 
     script(src='http://use.typekit.net/pdu4jrt.js')
@@ -36,8 +38,14 @@ html.en(lang='en')
               strong.slogan Now serving information between many places
               h1 Find three places
               input#from-search.typeahead(type='text', placeholder='From...')
+              input#from-selection.typeahead(type='hidden')
               |<br >
               input#to-search.typeahead(type='text', placeholder='To...')
-              button(type="button" class="btn btn-default btn-lg")
-                span(class="glyphicon glyphicon-star") Search
+              input#to-selection.typeahead(type='hidden')
+
+              button#search(type="button" class="btn btn-default btn-lg")
+                i(class="glyphicon glyphicon-search")
+              span#submitMessage
+
+
 

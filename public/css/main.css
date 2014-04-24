@@ -69,7 +69,21 @@ html, body {
       }
 
       .search-form input.typeahead{
-      
+        z-index:0;
+        height:40px;
+      }
+      .search-form input#from-search.typeahead{
+        width:540px;
+      }
+
+      .search-form input#to-search.typeahead{
+        width:500px;
+      }
+
+      .search-form button#search{
+        margin-top:9px;
+        width:40px;
+        height:40px;
       }
 
       .search-form h1 {
@@ -79,6 +93,10 @@ html, body {
         text-shadow: 0 1px 0 #fff;
         padding-bottom: 8px;
       }
+
       .search-form .error {
         color: #9d261d;
+      }
+      .search-form .success {
+        color: green;
       }
