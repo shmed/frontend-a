@@ -9,7 +9,7 @@ html.en(lang='en')
 
     script(src='/js/typeaheadjs/bloodhound.min.js')
     script(src='/js/typeaheadjs/typeahead.bundle.min.js')
-      
+
     script(src='http://use.typekit.net/pdu4jrt.js')
     script(src='/js/search.js')
 
@@ -20,25 +20,28 @@ html.en(lang='en')
     .header
       .main-column
         .logo
-          a(accesskey='1', href='/en/')
-            span Logo
     #bd
-      div
-        .hero-unit
-          .main-column
-            .search-form
-              strong.slogan Now serving information between many places
-              h1 Find three places
-              input#from-search.typeahead.form-control(type='text', placeholder='From...')
-              input#from-selection.typeahead(type='hidden')
-              |<br >
-              input#to-search.typeahead.form-control(type='text', placeholder='To...')
-              input#to-selection.typeahead(type='hidden')
+      .hero-unit
+        .main-column
+          .search-form
+            strong.slogan Now serving information between many places
+            h1 Find three places
+            input#from-search.typeahead.form-control.input-large(type='text', placeholder='Departure city')
+            input#from-selection.typeahead(type='hidden')
+            |<br >
+           
 
-              button#search(type="button" class="btn btn-default btn-lg")
-                i(class="glyphicon glyphicon-search")
-              span#submitMessage
-              | &nbsp;
+            input#to-search.typeahead.form-control(type='text', placeholder='Destination city')
+            input#to-selection.typeahead(type='hidden')
+
+            button#search(type="button" class="btn btn-default btn-lg")
+              i(class="glyphicon glyphicon-search")
+
+            span#submitMessage
+            | &nbsp;
+  #footer
+    .main-column
+      | Salut
 
 
 
