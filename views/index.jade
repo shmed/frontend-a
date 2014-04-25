@@ -3,22 +3,14 @@ html.en(lang='en')
   head
     title='Cool Search Tool'
   
-    
     link(rel='stylesheet', href='/css/main.css')
 
-    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.min.css')
-    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css')
-    link(rel='stylesheet', href='/twitter-typeahead/typeaheadjs.css')
-
-    script(src='http://use.typekit.net/pdu4jrt.js')
-
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
-    script(src='/bootstrap/js/bootstrap.min.js')
-    script(src='/twitter-typeahead/typeahead.bundle.min.js')
-    script(src='/twitter-typeahead/bloodhound.min.js')
 
-    
+    script(src='/js/typeaheadjs/bloodhound.min.js')
+    script(src='/js/typeaheadjs/typeahead.bundle.min.js')
+      
+    script(src='http://use.typekit.net/pdu4jrt.js')
     script(src='/js/search.js')
 
     script.
@@ -37,10 +29,10 @@ html.en(lang='en')
             .search-form
               strong.slogan Now serving information between many places
               h1 Find three places
-              input#from-search.typeahead(type='text', placeholder='From...')
+              input#from-search.typeahead.form-control(type='text', placeholder='From...')
               input#from-selection.typeahead(type='hidden')
               |<br >
-              input#to-search.typeahead(type='text', placeholder='To...')
+              input#to-search.typeahead.form-control(type='text', placeholder='To...')
               input#to-selection.typeahead(type='hidden')
 
               button#search(type="button" class="btn btn-default btn-lg")
