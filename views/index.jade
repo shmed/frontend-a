@@ -10,9 +10,10 @@ html.en(lang='en')
     script(src='/js/typeaheadjs/bloodhound.min.js')
     script(src='/js/typeaheadjs/typeahead.bundle.min.js')
 
-    script(src='http://use.typekit.net/pdu4jrt.js')
+    script(src='/js/cityTypeahead.js')
     script(src='/js/search.js')
 
+    script(src='http://use.typekit.net/pdu4jrt.js')
     script.
       try{Typekit.load();}catch(e){}
 
@@ -24,24 +25,24 @@ html.en(lang='en')
       .hero-unit
         .main-column
           .search-form
-            strong.slogan Now serving information between many places
-            h1 Find three places
-            input#from-search.typeahead.form-control.input-large(type='text', placeholder='Departure city')
-            input#from-selection.typeahead(type='hidden')
-            |<br >
-           
+            strong.slogan Now serving bus schedules for 10463 cities in 89 countries
+            h1 Find a bus for your next trip
+            form(action='#', method='post')
+              
+              div#from-search-group.form-group
+                input#from-search.typeahead.form-control.has-error(placeholder='Departure city')
+              
+              div.search-left-col
+                div#to-search-group.form-group
+                  input#to-search.typeahead.form-control(placeholder='Destination city')
 
-            input#to-search.typeahead.form-control(type='text', placeholder='Destination city')
-            input#to-selection.typeahead(type='hidden')
+              div.search-right-col
+                button#search(type="button" class="btn btn-default btn-lg")
+                  i(class="glyphicon glyphicon-search")
+              
+              div.clear-both
 
-            button#search(type="button" class="btn btn-default btn-lg")
-              i(class="glyphicon glyphicon-search")
-
-            span#submitMessage
-            | &nbsp;
-  #footer
-    .main-column
-      | Salut
-
-
-
+              span#submitMessage
+              | &nbsp;
+             
+            

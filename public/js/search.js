@@ -1,62 +1,59 @@
 $(function(){
-	var cities = new Bloodhound({
-	  datumTokenizer:function(d) {
-	    return Bloodhound.tokenizers.whitespace(d.norm);
-	  },
-	  queryTokenizer: Bloodhound.tokenizers.whitespace,
-	  remote : {
-	        url : "http://www.busbud.com/en/complete/locations/%QUERY?callback=?",
+
+	var cities = getCityBloodhoundSource('http://www.busbud.com/en/complete/locations/%QUERY?callback=?');
+	var fromField = new CityTypeahead('from-search', cities);
+	var toField = new CityTypeahead('to-search', cities);
+
+	function getCityBloodhoundSource(urlSource){
+		var cities = new Bloodhound({
+		 datumTokenizer:function(d) {
+		    return Bloodhound.tokenizers.whitespace(d.norm);
+		  },
+		  queryTokenizer: Bloodhound.tokenizers.whitespace,
+		  remote : {
+	        url : urlSource,
 	        dataType: 'jsonp'
-	  }
-	});
- 
-	cities.initialize();
-	 
-	$('#from-search').typeahead(
-		{
-		  minLength: 2,
-		  highlight: true,
-		},
-		{
-		name: 'cities',
-		displayKey: 'label',
-		minLength: 3,
-		highlight: true,
-		source: cities.ttAdapter()
-	}).on('typeahead:selected', function($e, data){
-		$('#from-selection').val(data.norm);
-	}).on('typeahead:opened', function($e, data){
-		$('#from-selection').val('');
-	});
+		  }
+		});
+		
+		cities.initialize();
 
-	$('#to-search').typeahead(
-		{
-		  minLength: 2,
-		  highlight: true,
-		},
-		{
-		name: 'cities',
-		displayKey: 'label',
-		minLength: 3,
-		highlight: true,
-		source: cities.ttAdapter()
-	}).on('typeahead:selected', function($e, data){
-		$('#to-selection').val(data.norm);
-	}).on('typeahead:opened', function($e, data){
-		$('#to-selection').val('');
-	});
+		return cities;
+	}
 
+	$('#search').click(validateForm);
 
-	$('#search').click(function(){
-		$('#submitMessage').show()
-		if ($('#from-selection').val() == '' || $('#to-selection').val() == ''){
+	function validateForm(){
+		
+		var hasError = false;
+
+		if (!fromField.isValueSelectedFromTypeahead()){
+			fromField.activateError();
+			hasError = true;
+		}else{
+			fromField.desactivateError();
+		}
+
+		if (!toField.isValueSelectedFromTypeahead()){
+			toField.activateError();
+			hasError = true;
+		}else{
+			toField.desactivateError();
+		}
+
+		if (hasError){
 			$('#submitMessage').text('Please select both destination from the lists');
 			$('#submitMessage').addClass("error");
 			$('#submitMessage').removeClass("success");
-		}else{
+		}
+		else{
 			$('#submitMessage').text('Enjoy your trip!');
 			$('#submitMessage').addClass("success");
 			$('#submitMessage').removeClass("error");
 		}
-	});
+
+	}
 });
+
+
+

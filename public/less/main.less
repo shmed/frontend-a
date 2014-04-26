@@ -5,6 +5,9 @@
 @logo-height: 40px;
 @header-height:60px;
 @color-ocean:#3678ae;
+@search-button-width:50px;
+@dark-gray:#808080;
+
 html{
 	height: 100%;
 	body {
@@ -19,14 +22,13 @@ html{
 	max-width:700px;
 	margin:auto;
 }
-
 /* header */
 .header {
-
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-	background-color: @color-ocean;
+	position:relative;
+	z-index:3;
+	width:100%;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, .5);
 	height:@header-height;
-	vertical-align:center;
 	padding:10px;
 	/* logo */
 	.logo {
@@ -41,7 +43,10 @@ html{
 	height: calc(~'80% - ' @header-height);
 	display:table;
 	width:100%;
-
+	position:relative;
+	
+	z-index:1;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, .5);
 	.hero-unit {
 		display: table-cell;
 		vertical-align: middle;
@@ -50,12 +55,12 @@ html{
 		background-color: #000;
 		background-position: center;
 		background-size: cover;
-		background-image: url(../images/hong-kong-cityscape-wallpaper.jpg);
+		background-image: url(../../images/port_montreal_aggrandi.jpg);
 	
 		
 		font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 		font-weight: normal;
-		color: #293033;
+		color: @dark-gray;
 		text-shadow: 0 1px 0 #fff;
 
 		.slogan {
@@ -72,30 +77,35 @@ html{
 
 	background-color: #fff;
 	background-color: rgba(255, 255, 255, 0.90);
-	color: #293033;
+	color: @dark-gray;
 	border-radius: 10px;
 	background-clip: padding-box;
 	box-shadow: 0px 0px 4px 0px #293033;
 	padding: 40px 80px 10px 80px;	
 
-
-
 	h1 {
 		font-weight: normal;
-		color: #293033;
+		color: @dark-gray;
 		font-size: 32px;
 		text-shadow: 0 1px 0 #fff;
 		padding-bottom: 8px;
 	}
 
-
-
+	.search-left-col{
+		width:calc(~'100% - 5px - ' @search-button-width);
+		float:left;
+	}
+	.search-right-col{
+		width:@search-button-width;
+		float:right;
+	}
 	
 	button#search{
-		width:100px;
-		height:40px;
+		width:@search-button-width;
+		height:50px;
 		background-color:@color-ocean;
 		color:white;
+		float:right;
 	}
 
 	.error {
@@ -104,10 +114,9 @@ html{
 	.success {
 		color: green;
 	}
+
+	.clear-both{
+		clear: both;
+	}
 }
 
-#footer{
-	color:white;
-	text-align:right;
-	margin:20px;
-}
