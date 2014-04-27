@@ -2,7 +2,7 @@ function CityTypeahead(searchFieldID, bloodhoundSource){
 
 	this.valueIsSelectedFromTypeahead = false;
 	this.searchFieldID = searchFieldID;
-
+	this.lastValue;
 	function setUpTypeahead(root, bloodhoundSource){
 		$('#' + root.searchFieldID).typeahead(
 			{
@@ -15,10 +15,12 @@ function CityTypeahead(searchFieldID, bloodhoundSource){
 			highlight: true,
 			source: bloodhoundSource.ttAdapter()
 
-		}).on('typeahead:selected', function($e, data){
+		}).on('typeahead:selected typeahead:autocompleted', function($e, data){
 			root.valueIsSelectedFromTypeahead = true;
+			lastValue = data;
 		}).on('typeahead:opened', function($e, data){
-			root.valueIsSelectedFromTypeahead = false;
+			if (lastValue != data)
+				root.valueIsSelectedFromTypeahead = false;
 		});
 	}
 
