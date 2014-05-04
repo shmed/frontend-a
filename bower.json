@@ -1,0 +1,21 @@
+{
+  "name": "coding-challenge-frontend-a",
+  "version": "0.0.1",
+  "homepage": "https://github.com/shmed/coding-challenge-frontend-a",
+  "authors": [
+    "Raouf Merouche <ashmed@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1",
+    "bootstrap": "3.0.0",
+    "typeahead.js": "0.10.2"
+  }
+}

@@ -37,16 +37,17 @@ app.configure('development', function(){
 
 /* Index page*/
 app.get('/', routes.index);
-
+/*
 app.get('/fonts/:file',function(req,res) {
     res.sendfile(path.join(__dirname,'node_modules','twitter-bootstrap-3.0.0','fonts', req.params.file));
 });
-
+*/
 /* Routes to typeahead.js needed files*/
+/*
 app.get('/js/typeaheadjs/:file',function(req,res) {
     res.sendfile(path.join(__dirname,'node_modules','typeahead.js','dist', req.params.file));
 });
-
+8?
 /* Creating the server */
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
