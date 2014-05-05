@@ -13,5 +13,5 @@
     "less": "*",
     "less-middleware": "*"
   },
-  "postinstall": "node_modules/.bin/bower install
+  "postinstall": "node_modules/.bin/bower install"
 }
