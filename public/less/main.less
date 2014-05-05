@@ -6,6 +6,7 @@
 @color-ocean:#3678ae;
 @search-button-width:50px;
 @dark-gray:#808080;
+@light-gray:#CCCCCC;
 
 html{
 	height: 100%;
@@ -98,7 +99,21 @@ html{
 		width:@search-button-width;
 		float:right;
 	}
+
+	.form-group{
+		position:relative;
+		.map-market-icon{
+			top:8px;
+			left:8px;
+		    position:absolute;
+		    font-size:28px;
+		    z-index:5;
+		    color:@light-gray;
+		}
+	}
 	
+	
+
 	button#search{
 		width:@search-button-width;
 		height:50px;
