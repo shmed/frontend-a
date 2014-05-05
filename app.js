@@ -1,4 +1,4 @@
-/**
+/*
  * Module dependencies.
  */
 
@@ -7,7 +7,6 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var lessMiddleware = require('less-middleware');
-
 var app = express();
 
 app.configure(function(){
@@ -37,18 +36,11 @@ app.configure('development', function(){
 
 /* Index page*/
 app.get('/', routes.index);
-/*
-app.get('/fonts/:file',function(req,res) {
-    res.sendfile(path.join(__dirname,'node_modules','twitter-bootstrap-3.0.0','fonts', req.params.file));
-});
-*/
-/* Routes to typeahead.js needed files*/
-/*
-app.get('/js/typeaheadjs/:file',function(req,res) {
-    res.sendfile(path.join(__dirname,'node_modules','typeahead.js','dist', req.params.file));
-});
-8?
+
+module.exports = app;
+
+
 /* Creating the server */
-http.createServer(app).listen(app.get('port'), function(){
+exports = module.exports = http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
-});
+})

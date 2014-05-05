@@ -10,10 +10,10 @@ html.en(lang='en')
     script(src='/bower_components/typeahead.js/dist/bloodhound.min.js')
     script(src='/bower_components/typeahead.js/dist/typeahead.bundle.min.js')
 
-    script(src='/js/cityTypeahead.js')
-    script(src='/js/search.js')
+    script(src='/js/controller.js')
 
     script(src='http://use.typekit.net/pdu4jrt.js')
+
     script.
       try{Typekit.load();}catch(e){}
 
@@ -42,7 +42,11 @@ html.en(lang='en')
               
               div.clear-both
 
-              span#submitMessage
-              | &nbsp;
+              div#errorMsg(class="error")  
+                |<strong>Invalid input!</strong> Please select the value from the dropdown list.  
+
+              
+
+
              
             
