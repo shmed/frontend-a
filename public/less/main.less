@@ -40,6 +40,7 @@ html{
 
 
 #bd{
+	height:500px;
 	height: calc(~'80% - ' @header-height);
 	display:table;
 	width:100%;
@@ -75,8 +76,7 @@ html{
 	width:inherit;
 	max-width:inherit;
 
-	background-color: #fff;
-	background-color: rgba(255, 255, 255, 0.90);
+	background-image: url("../../images/bg.png");
 	color: @dark-gray;
 	border-radius: 10px;
 	background-clip: padding-box;
@@ -92,10 +92,12 @@ html{
 	}
 
 	.search-left-col{
+		width: 80%;
 		width:calc(~'100% - 5px - ' @search-button-width);
 		float:left;
 	}
 	.search-right-col{
+		width: 20%;
 		width:@search-button-width;
 		float:right;
 	}
